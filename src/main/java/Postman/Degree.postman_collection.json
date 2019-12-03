@@ -1,0 +1,180 @@
+{
+	"info": {
+		"_postman_id": "b4766dc0-6143-4e27-ad4a-a0fc8ba6a827",
+		"name": "Degree",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get:localhost:8080/degree.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ff312f29-98b2-460b-949d-14ddeb82b96a",
+						"exec": [
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"土木\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/degree.ctl",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"degree.ctl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put:localhost:8080/degree.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f1b4f7c1-b193-4850-babf-0b6d326654e5",
+						"exec": [
+							"",
+							"pm.test(\"添加成功？\", function () {",
+							"   pm.response.to.body({\"message\":\"增加成功\"});",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"description\":\"id为null新系\",\"no\":\"0201\",\"remarks\":\"\",\"school\":{\"description\":\"教授\",\"id\":2,\"no\":\"02\",\"remarks\":\"the best\"}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/degree.ctl",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"degree.ctl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete:localhost:8080/degree.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fe4b716b-6ab4-4854-91b3-f896dca6dbbd",
+						"exec": [
+							"\r",
+							"\r",
+							"\r",
+							"pm.test(\"删除？\", function () {\r",
+							"   pm.response.to.body({\"message\":\"删除成功\"});\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/degree.ctl?id=3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"degree.ctl"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put:localhost:8080/degree.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1ae8f724-cb4d-481e-97ce-ddffb8bd7e86",
+						"exec": [
+							"pm.test(\"修改成功？\", function () {\r",
+							"   pm.response.to.body({\"message\":\"修改成功\"});\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"description\":\"修改id=1的系\",\"id\":1,\"no\":\"0201\",\"remarks\":\"\",\"school\":{\"description\":\"博士\",\"id\":2,\"no\":\"02\",\"remarks\":\"最好\"}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/degree.ctl",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"degree.ctl"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,0 +1,177 @@
+{
+	"info": {
+		"_postman_id": "1ae3620c-e6e4-4147-9e48-46d6d3db1b4e",
+		"name": "ProfTitle",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET http://localhost:8080/profTitle.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "251a9a7f-bf5d-4e98-b164-3550d8507ebb",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Body matches string 管理\"] = responseBody.has(\"管理\");",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/profTitle.ctl",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"profTitle.ctl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT http://localhost:8080/profTitle.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Your test name\"] = jsonData.message === \"更新成功\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"description\":\"土木工程\",\"id\":1,\"no\":\"08\",\"remarks\":\"\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/profTitle.ctl",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"profTitle.ctl"
+					]
+				},
+				"description": " 修改职称\n"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE http://localhost:8080/profTitle.ctl?id=1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Body matches string\"] = responseBody.has(\"Success\");",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Your test name\"] = jsonData.message === \"Success\""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/profTitle.ctl?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"profTitle.ctl"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				},
+				"description": "delete profTitle"
+			},
+			"response": []
+		},
+		{
+			"name": "POST http://localhost:8080/profTitle.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1a4fc12e-a0cf-4e07-bcb9-1b4fc5144baa",
+						"exec": [
+							"pm.test(\"添加成功？\", function () {\r",
+							"   pm.response.to.body({\"message\":\"增加成功\"});\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"description\":\"new school\",\"no\":\"02\",\"remarks\":\"最好的学院\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/profTitle.ctl",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"profTitle.ctl"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,0 +1,159 @@
+{
+	"info": {
+		"_postman_id": "d49918ad-041c-470e-80cb-90dec0164e0b",
+		"name": "Teacher",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET http://localhost:8080/teacher.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "feae5297-2e3a-46a4-99de-40a74b5e4bcb",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/teacher.ctl",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"teacher.ctl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT http://localhost:8080/teacher.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cabd12d1-391b-4a33-85ab-948b6d99e123",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"degree\":{\"description\":\"博士\",\"id\":1,\"no\":\"01\",\"remarks\":\"\"},\"department\":{\"description\":\"信息管理\",\"id\":2,\"no\":\"0202\",\"remarks\":\"\",\"school\":{\"description\":\"管理工程\",\"id\":2,\"no\":\"02\",\"remarks\":\"最好的学院\"}},\"id\":1,\"name\":\"修改id=1的老师\",\"title\":{\"description\":\"副教授\",\"id\":2,\"no\":\"02\",\"remarks\":\"\"}}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/teacher.ctl",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"teacher.ctl"
+					]
+				},
+				"description": " 修改老师\n"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE http://localhost:8080/teacher.ctl?id=1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5d120478-4933-46bd-bb56-04b53684bdcc",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/teacher.ctl?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"teacher.ctl"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				},
+				"description": "delete teacher"
+			},
+			"response": []
+		},
+		{
+			"name": "POST http://localhost:8080/teacher.ctl",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"degree\":{\"description\":\"博士\",\"id\":1,\"no\":\"01\",\"remarks\":\"\"},\"department\":{\"description\":\"信息管理\",\"id\":2,\"no\":\"0202\",\"remarks\":\"\",\"school\":{\"description\":\"管理工程\",\"id\":2,\"no\":\"02\",\"remarks\":\"最好的学院\"}},\"id\":7,\"name\":\"id=7 的新的新老师\",\"title\":{\"description\":\"副教授\",\"id\":2,\"no\":\"02\",\"remarks\":\"\"}}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/teacher.ctl",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"teacher.ctl"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
