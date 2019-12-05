@@ -8,7 +8,7 @@ import java.io.IOException;
 //过滤所有请求资源
 @WebFilter(filterName = "Filter 0", urlPatterns = {"/*"})
 
-public class Filter0_Encoding implements Filter {
+public class Filter00_Encoding implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {}
 
