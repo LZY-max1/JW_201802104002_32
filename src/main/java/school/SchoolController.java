@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Collection;
@@ -51,6 +52,12 @@ public class SchoolController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         //创建JSON对象message，以便往前端响应信息
         JSONObject message = new JSONObject();
+        HttpSession session = request.getSession(false);
+        if(session==null || session.getAttribute("currentUser") ==null){
+            message.put("message","请登录或重新登录");
+            response.getWriter().println(message);
+            return;
+        }
         //在数据库表中增加School对象
         try {
             SchoolService.getInstance().add(schoolToAdd);
