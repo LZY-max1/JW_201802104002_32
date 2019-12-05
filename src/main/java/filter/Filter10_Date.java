@@ -9,7 +9,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 @WebFilter(filterName = "Filter 1", urlPatterns = {"/*"})
-public class Filter1_Date implements Filter {
+public class Filter10_Date implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {}
 
