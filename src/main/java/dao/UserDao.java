@@ -156,8 +156,6 @@ public final class UserDao {
 		pstmt.close();
 	}
 
-
-
 	public void delete(Integer id) throws SQLException {
 		User user = this.find(id);
 		this.delete(user);
